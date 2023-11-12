@@ -6,7 +6,7 @@ const addRest = async (req,res)=>{
     try{
         
        const Restdata=req.body
-       console.log(Restdata);
+       console.log(Restdata,"fghjkl");
        const { name, address,contact,description,image} = req.body;
       
        const insertQuery = `INSERT INTO restaurant (name,address,contact,description,image) VALUES (?, ?, ?, ?, ?)`;
