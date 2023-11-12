@@ -6,7 +6,7 @@ const addRest = async (req,res)=>{
     try{
         
        const Restdata=req.body
-       console.log(Restdata,"fghjkl");
+      
        const { name, address,contact,description,image} = req.body;
       
        const insertQuery = `INSERT INTO restaurant (name,address,contact,description,image) VALUES (?, ?, ?, ?, ?)`;
@@ -39,7 +39,7 @@ const getRest=async(req,res)=>{
 const getSingle=async(req,res)=>{
     try{
          const id=req.params.restId
-        console.log("jjjjjjjjj",id);
+      
         const getQuery=`SELECT * FROM restaurant WHERE id=?`
         const values=[id]
         excQuery(getQuery,values).then((result)=>{
@@ -53,9 +53,9 @@ const getSingle=async(req,res)=>{
 }
 const deleteRest=async(req,res)=>{
     try{
-        console.log("iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii");
+      
         const {id}=req.body
-       console.log("ooooooooooooooooooooooo");
+      
         const deleteQuery=`DELETE FROM restaurant WHERE id=?`
         const values=[id]
         excQuery(deleteQuery,values).then((result)=>{
