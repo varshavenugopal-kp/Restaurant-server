@@ -1,14 +1,15 @@
-import excQuery from "../Config/Connection";
+import excQuery from "../Config/Connection.js";
 
 
 
 const addRest = async (req,res)=>{
     try{
         
-    //    const Restdata=req.body
+       const Restdata=req.body
+       console.log(Restdata);
        const { name, address,contact,description,image} = req.body;
       
-       const insertQuery = `INSERT INTO tasks ( name, address,contact,description,image) VALUES (?, ?, ?, ?, ?)`;
+       const insertQuery = `INSERT INTO restaurant (name,address,contact,description,image) VALUES (?, ?, ?, ?, ?)`;
       
        const values=[ name, address,contact,description,image]
      
@@ -24,7 +25,7 @@ const addRest = async (req,res)=>{
 
 const getRest=async(req,res)=>{
     try{
-        const getQuery=`SELECT * FROM Restaurants ORDER BY date DESC`
+        const getQuery=`SELECT * FROM restaurant`
         const values=[]
         excQuery(getQuery,values).then((result)=>{
             console.log(result);
@@ -38,8 +39,8 @@ const getRest=async(req,res)=>{
 const getSingle=async(req,res)=>{
     try{
          const id=req.params.restId
-        
-        const getQuery=`SELECT * FROM Restaurants WHERE id=?`
+        console.log("jjjjjjjjj",id);
+        const getQuery=`SELECT * FROM restaurant WHERE id=?`
         const values=[id]
         excQuery(getQuery,values).then((result)=>{
             console.log(result);
@@ -52,9 +53,10 @@ const getSingle=async(req,res)=>{
 }
 const deleteRest=async(req,res)=>{
     try{
+        console.log("iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii");
         const {id}=req.body
-       
-        const deleteQuery=`DELETE FROM Restaurants WHERE id=?`
+       console.log("ooooooooooooooooooooooo");
+        const deleteQuery=`DELETE FROM restaurant WHERE id=?`
         const values=[id]
         excQuery(deleteQuery,values).then((result)=>{
             console.log(result);
@@ -73,7 +75,7 @@ const editRest = async (req,res)=>{
        const {id, name, address,contact,description,image} = req.body;
       
       
-       const insertQuery = `UPDATE Restaurants SET name = ?, address = ?, contact = ?, description = ?, image = ? WHERE id = ?`;
+       const insertQuery = `UPDATE restaurant SET name = ?, address = ?, contact = ?, description = ?, image = ? WHERE id = ?`;
       
        const values = [name, address,contact,description,image, id];
        
