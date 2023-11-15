@@ -14,7 +14,7 @@ app.use("/",restaurantrouter)
 
 app.listen(8000,()=>{
     console.log("connected");
-    excQuery(`CREATE TABLE IF NOT EXISTS restaurant (id INT AUTO_INCREMENT PRIMARY KEY,name VARCHAR(50) NOT NULL,image TEXT,description VARCHAR(255) NOT NULL,contact VARCHAR(50),address VARCHAR(255))`).then((res)=>{
+    excQuery(`CREATE TABLE IF NOT EXISTS restaurant (id INT AUTO_INCREMENT PRIMARY KEY,name VARCHAR(50) NOT NULL,image TEXT,description VARCHAR(255) NOT NULL,contact VARCHAR(15),address VARCHAR(255))`).then((res)=>{
         console.log(res);
         
      })
