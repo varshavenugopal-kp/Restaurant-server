@@ -5,7 +5,7 @@ const router = Router();
 router.get('/', restaurantController.getRest);
 router.post('/add', restaurantController.addRest);
 router.get('/single/:restId', restaurantController.getSingle);
-router.post('/editData', restaurantController.editRest);
-router.post('/delete', restaurantController.deleteRest);
+router.patch('/editData', restaurantController.editRest);
+router.delete('/delete', restaurantController.deleteRest);
 
 module.exports = router;
