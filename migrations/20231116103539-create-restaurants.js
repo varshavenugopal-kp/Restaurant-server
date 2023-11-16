@@ -25,15 +25,13 @@ module.exports = {
         type: Sequelize.STRING
       },
       createdAt: {
-        type: DataTypes.DATE,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
         allowNull: false,
+        type: Sequelize.DATE
       },
       updatedAt: {
-        type: DataTypes.DATE,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
         allowNull: false,
-      },
+        type: Sequelize.DATE
+      }
     });
   },
   async down(queryInterface, Sequelize) {
